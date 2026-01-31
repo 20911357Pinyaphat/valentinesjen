@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Be My Valentine?</title>
+<title>Gennipher 💖</title>
 
 <style>
 body{
@@ -11,15 +11,16 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(#ffdde1,#ee9ca7);
+background:linear-gradient(#ffd6e8,#ff9dbb);
 font-family:Arial;
+overflow:hidden;
 }
 
 .card{
 background:white;
 padding:25px;
-border-radius:20px;
-width:350px;
+border-radius:22px;
+width:360px;
 text-align:center;
 box-shadow:0 15px 40px rgba(0,0,0,.2);
 position:relative;
@@ -31,13 +32,16 @@ border-radius:15px;
 margin-bottom:15px;
 }
 
+h2{margin:5px 0;}
+p{margin:5px 0 15px;}
+
 button{
-padding:10px 20px;
+padding:10px 22px;
 border-radius:12px;
 border:none;
 font-size:16px;
 cursor:pointer;
-margin:5px;
+margin:6px;
 }
 
 #yes{
@@ -56,21 +60,41 @@ margin-top:15px;
 font-weight:bold;
 }
 
+.heart{
+position:absolute;
+color:#ff3b6b;
+font-size:18px;
+animation:float 4s linear infinite;
+opacity:.6;
+}
+
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(-100vh)}
+}
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="card" id="card">
 
 <img src="images/us.jpg">
 
-<h2>Will you be my Valentine? 💘</h2>
+<h2>Gennipher 💕</h2>
+<p>Will you be my Valentine?</p>
 
-<button id="yes">Yes 💕</button>
-<button id="no">No 😭</button>
+<button id="yes">Yes 💖</button>
+<button id="no">No 🙃</button>
 
-<div id="msg">YAY 😭💖 Screenshot this and send it to me!</div>
+<div id="msg">
+YAYYYY 😭💞  
+<br><br>
+You’re officially my Valentine now.  
+I promise cuddles, snacks, and unlimited love.
+<br><br>
+Screenshot this and send it to me 😌
+</div>
 
 </div>
 
@@ -80,15 +104,36 @@ const no = document.getElementById("no");
 const yes = document.getElementById("yes");
 const msg = document.getElementById("msg");
 
-no.addEventListener("mouseover",()=>{
+let count = 0;
+
+no.addEventListener("mouseover", moveNo);
+no.addEventListener("click", moveNo);
+
+function moveNo(){
+count++;
 no.style.position="absolute";
-no.style.left=Math.random()*200+"px";
-no.style.top=Math.random()*200+"px";
-});
+no.style.left=Math.random()*250+"px";
+no.style.top=Math.random()*250+"px";
+}
 
 yes.addEventListener("click",()=>{
 msg.style.display="block";
+yes.disabled=true;
+no.disabled=true;
 });
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="-20px";
+heart.style.fontSize=(12+Math.random()*24)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),4000);
+}
+
+setInterval(createHeart,300);
 
 </script>
 
