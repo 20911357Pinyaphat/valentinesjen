@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Be My Valentine?</title>
+
+<style>
+body{
+margin:0;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(#ffdde1,#ee9ca7);
+font-family:Arial;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+width:350px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+position:relative;
+}
+
+img{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+button{
+padding:10px 20px;
+border-radius:12px;
+border:none;
+font-size:16px;
+cursor:pointer;
+margin:5px;
+}
+
+#yes{
+background:#ff3b6b;
+color:white;
+}
+
+#no{
+background:white;
+border:1px solid #aaa;
+}
+
+#msg{
+display:none;
+margin-top:15px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="images/us.jpg">
+
+<h2>Will you be my Valentine? 💘</h2>
+
+<button id="yes">Yes 💕</button>
+<button id="no">No 😭</button>
+
+<div id="msg">YAY 😭💖 Screenshot this and send it to me!</div>
+
+</div>
+
+<script>
+
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+const msg = document.getElementById("msg");
+
+no.addEventListener("mouseover",()=>{
+no.style.position="absolute";
+no.style.left=Math.random()*200+"px";
+no.style.top=Math.random()*200+"px";
+});
+
+yes.addEventListener("click",()=>{
+msg.style.display="block";
+});
+
+</script>
+
+</body>
+</html>
